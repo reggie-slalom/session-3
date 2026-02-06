@@ -11,3 +11,6 @@
 - When mapping backend `/api/items` (which returns `{id,name}`) to tasks, set `priority: 'P3'`.
 - Update local storage serialization to persist `priority`.
 - Add UI control (e.g., select dropdown) constrained to P1/P2/P3.
+- Priority selection should be radio buttons
+- Selected radio button should be blue (#07F2E6)
+- Unselected radio button should be gray(#7A7A7A)

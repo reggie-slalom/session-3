@@ -92,3 +92,77 @@ li:last-child {
   color: #d32f2f;
   font-weight: bold;
 }
+
+/* Priority radio button styles */
+.priority-group {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.priority-radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.priority-radio input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #7A7A7A;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.priority-radio input[type="radio"]:checked {
+  border-color: #07F2E6;
+  background-color: #07F2E6;
+}
+
+.priority-radio input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.priority-radio label {
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  user-select: none;
+}
+
+/* Priority badge styles */
+.priority-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.priority-P1 {
+  background-color: #ff5252;
+  color: white;
+}
+
+.priority-P2 {
+  background-color: #ffa726;
+  color: white;
+}
+
+.priority-P3 {
+  background-color: #66bb6a;
+  color: white;
+}

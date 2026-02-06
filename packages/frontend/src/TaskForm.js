@@ -7,6 +7,7 @@ function TaskForm({ onSave, initialTask }) {
   const [title, setTitle] = useState(initialTask?.title || '');
   const [description, setDescription] = useState(initialTask?.description || '');
   const [dueDate, setDueDate] = useState(initialTask?.due_date || '');
+  const [priority, setPriority] = useState(initialTask?.priority || 'P3');
   const [error, setError] = useState(null);
 
   // Helper to normalize date string to YYYY-MM-DD format
@@ -30,10 +31,12 @@ function TaskForm({ onSave, initialTask }) {
       setTitle(initialTask.title || '');
       setDescription(initialTask.description || '');
       setDueDate(normalizeDateString(initialTask.due_date));
+      setPriority(initialTask.priority || 'P3');
     } else {
       setTitle('');
       setDescription('');
       setDueDate('');
+      setPriority('P3');
     }
   }, [initialTask]);
 
@@ -44,10 +47,11 @@ function TaskForm({ onSave, initialTask }) {
       return;
     }
     setError(null);
-    await onSave({ title, description, due_date: dueDate });
+    await onSave({ title, description, due_date: dueDate, priority });
     setTitle('');
     setDescription('');
     setDueDate('');
+    setPriority('P3');
   };
 
   return (
@@ -143,6 +147,27 @@ function TaskForm({ onSave, initialTask }) {
             }
           }}
         />
+        <Box sx={{ mt: 0.5 }}>
+          <Typography variant="caption" sx={{ color: '#666', fontWeight: 500, display: 'block', mb: 1 }}>
+            Priority
+          </Typography>
+          <Box className="priority-group">
+            {['P1', 'P2', 'P3'].map((p) => (
+              <Box key={p} className="priority-radio">
+                <input
+                  type="radio"
+                  id={`priority-${p}`}
+                  name="priority"
+                  value={p}
+                  checked={priority === p}
+                  onChange={(e) => setPriority(e.target.value)}
+                  data-testid={`priority-${p}`}
+                />
+                <label htmlFor={`priority-${p}`}>{p}</label>
+              </Box>
+            ))}
+          </Box>
+        </Box>
         {error && <Typography color="error" sx={{ fontWeight: 500, fontSize: '0.875rem' }}>{error}</Typography>}
         <Box display="flex" gap={2}>
           <Button 
