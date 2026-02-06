@@ -1,0 +1,81 @@
+- Epic: MVP - Task Data Model Updates
+  - Story: Add due date field to tasks
+    - Acceptance Criteria:
+      - A user can set a task due date using the ISO format YYYY-MM-DD.
+      - A task can be saved without a due date.
+  - Story: Add priority field with default P3
+    - Acceptance Criteria:
+      - A user can set task priority to P1, P2, or P3.
+      - If a user does not choose a priority, the task is saved with priority P3.
+  - Story: Require title on task creation
+    - Acceptance Criteria:
+      - A task cannot be created without a title.
+      - When title is missing, the app does not add a new task.
+
+- Epic: MVP - Due Date Validation
+  - Story: Ignore invalid due date values
+    - Acceptance Criteria:
+      - If a task has an invalid due date value, it is treated as if it has no due date.
+      - An invalid due date does not break rendering of the task list or filters.
+
+- Epic: MVP - Task Filters
+  - Story: Add All filter tab
+    - Acceptance Criteria:
+      - The UI includes an All filter/tab.
+      - Selecting All shows tasks regardless of due date.
+  - Story: Add Today filter tab
+    - Acceptance Criteria:
+      - The UI includes a Today filter/tab.
+      - Selecting Today shows only tasks with due date equal to today.
+  - Story: Add Overdue filter tab
+    - Acceptance Criteria:
+      - The UI includes an Overdue filter/tab.
+      - Selecting Overdue shows only tasks with due date earlier than today.
+  - Story: Show completed tasks in All view
+    - Acceptance Criteria:
+      - Completed tasks remain visible when the All filter is selected.
+  - Story: Hide completed tasks in Today view
+    - Acceptance Criteria:
+      - Completed tasks are not shown when the Today filter is selected.
+  - Story: Hide completed tasks in Overdue view
+    - Acceptance Criteria:
+      - Completed tasks are not shown when the Overdue filter is selected.
+
+- Epic: MVP - Priority Display
+  - Story: Display priority on task list items
+    - Acceptance Criteria:
+      - Each task displays its priority (P1, P2, or P3) in the task list.
+  - Story: Add color badges for P1 priority
+    - Acceptance Criteria:
+      - Tasks with priority P1 display a red priority badge.
+  - Story: Add color badges for P2 priority
+    - Acceptance Criteria:
+      - Tasks with priority P2 display an orange priority badge.
+  - Story: Add color badges for P3 priority
+    - Acceptance Criteria:
+      - Tasks with priority P3 display a gray priority badge.
+
+- Epic: MVP - Local Storage Only
+  - Story: Persist tasks locally without backend changes
+    - Acceptance Criteria:
+      - Tasks persist after a page refresh.
+      - The app does not require a backend service to create, view, or update tasks.
+
+- Epic: Post-MVP - Overdue Visual Highlighting
+  - Story: Visually highlight overdue tasks
+    - Acceptance Criteria:
+      - Overdue tasks have distinct visual styling compared to non-overdue tasks.
+
+- Epic: Post-MVP - Task Sorting
+  - Story: Sort overdue tasks first
+    - Acceptance Criteria:
+      - When sorting is enabled, overdue tasks appear before non-overdue tasks.
+  - Story: Sort tasks by priority P1 to P3
+    - Acceptance Criteria:
+      - When sorting is enabled, tasks are ordered by priority from P1 to P3.
+  - Story: Sort tasks by due date ascending
+    - Acceptance Criteria:
+      - When sorting is enabled, earlier due dates appear before later due dates.
+  - Story: Place undated tasks last
+    - Acceptance Criteria:
+      - When sorting is enabled, tasks without a due date appear after tasks with a due date.
